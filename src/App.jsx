@@ -235,31 +235,40 @@ function MyComponent() {
   };
 
   return (
-    <div>
-      <h1>Analizador de Código</h1>
-      <textarea
-        rows="10"
-        cols="50"
-        placeholder="Ingrese el bloque de código"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <br />
-      <button onClick={handleValidation}>Validar</button>
-      <br />
-      {result !== null && stackContent !== null && (
-        <div>
-          <h2>Resultado: {result ? 'Válido' : 'Inválido'}</h2>
-          <h3>Pila:</h3>
-          <ul>
-            {stackContent.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
+    <div className="container mx-auto p-8">
+    <h1 className="text-3xl font-bold mb-4">AUTOMATUM</h1>
+    <textarea
+      className="w-full p-2 border border-gray-300 mb-4"
+      rows="10"
+      cols="50"
+      placeholder="Ingrese el bloque de código"
+      value={input}
+      onChange={(e) => setInput(e.target.value)}
+    />
+    <br />
+    <button
+      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+      onClick={handleValidation}
+    >
+      Validar
+    </button>
+    <br />
+    {result !== null && stackContent !== null && (
+      <div className="mt-8">
+        <h2 className="text-xl font-bold mb-2">Resultado: {result ? 'Válido' : 'Inválido'}</h2>
+        <h3 className="text-lg font-bold mb-2">Pila:</h3>
+        <ul>
+          {stackContent.map((item, index) => (
+            <li key={index} className="list-disc ml-4">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+);
 }
+
 
 export default MyComponent;
